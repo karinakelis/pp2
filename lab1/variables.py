@@ -1,16 +1,35 @@
+
+#exercise 1
+carname = "Volvo"
+print (carname)
+
+#exercise 2
+
+x = 50
+
+
+#exercise 3
 x = 5
-y = "John"
+y = 10
+print(x + y)
+
+#exercise 4
+
+x = 5
+y = 6
+z = x + y
 print(x)
-print(y)
 
-x = 4       # x is of type int
-x = "Sally" # x is now of type str
-print(x)
+#exercise 5
 
+x,y,z = "Orange", "Banana", "Cherry"
 
-x = str(3)    # x will be '3'
-y = int(3)    # y will be 3
-z = float(3)  # z will be 3.0
-print (x)
-print (y)
-print (z)
+# exercise 6
+x = y = z = "orange"
+
+def func():
+ global x
+ x = "fantastic"
+ 
+ 
+ 
