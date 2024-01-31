@@ -10,6 +10,6 @@ print(10 < 9)
 #4
 print(bool("abs"))
   #True
-#5
+ #5
 print(bool("0"))
-    #False
+ #False
