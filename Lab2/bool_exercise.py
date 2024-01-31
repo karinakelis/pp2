@@ -11,5 +11,5 @@ print(10 < 9)
 print(bool("abs"))
   #True
  #5
-print(bool("0"))
+print(bool(0))
  #False
