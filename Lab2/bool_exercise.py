@@ -1,15 +1,15 @@
 #1
 print(10 > 9)
-  True
+  #True
 #2
 print(10==9)
- False
+ #False
 #3
 print(10 < 9)
-  False
+  #False
 #4
 print(bool("abs"))
-  True
+  #True
 #5
 print(bool("0"))
-    False
+    #False
