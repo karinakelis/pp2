@@ -124,8 +124,11 @@ list = [1,2,3,4,5,4,4,8,8,9,10,5]
 print(unique_list(list))
 
 #Exercise 11
-
-
+ 
+def Polindrome(string):
+    ans = string 
+    rev = string[::-1]
+     
      
             
         
