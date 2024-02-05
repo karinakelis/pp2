@@ -1,4 +1,6 @@
-#Exercise 1
+import math
+
+'''#Exercise 1
 def ounces(grams):
   return 28.3495231  * grams
 
@@ -54,7 +56,7 @@ def permut(word):
             
             
     return result
-string = input()
+string = input("Write a word: ")
 print(permut(string))
 
 
@@ -64,7 +66,7 @@ def rev(string):
     word = string.split(" ")
     word = word[-1::-1]
     return word
-string = input()
+string = input("Write a sentence: ")
 print(rev(string))
 
 
@@ -83,7 +85,52 @@ print(coding(list))
 
 #Exercise 8
 
+def spy_game(nums):
+    target1 = 0
+    target2 = 0
+    target3 = 0
+    for x in nums:
+        if x == target1:
+            target1 = target2
+        elif x == target2:
+            target2 = target3
+        elif x == target3:
+             return True
+        else:
+            return False 
+        
+nums = [1,2,4,0,0,7,5]
+print(spy_game(nums))'''
 
+ #Exercise 9
+ 
+def sphere(R):
+    S = (4/3) * math.pi * R**3
+    return S
+R = 6
+print(sphere(R)) 
+
+#Exercise 10
+
+def unique_list(list):
+    new_list = []
+    for x in list:
+        if x not in new_list:
+            new_list.append(x)
+            
+    for a in new_list:
+        print (a , end = " ")
+list = [1,2,3,4,5,4,4,8,8,9,10,5]
+print(unique_list(list))
+
+#Exercise 11
+
+
+     
+            
+        
+
+   
 
 
         
