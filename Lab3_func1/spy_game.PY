@@ -1,16 +1,17 @@
-def spy_game(nums):
-    target1 = 0
-    target2 = 0
-    target3 = 0
-    for x in nums:
-        if x == target1:
-            target1 = target2
-        elif x == target2:
-            target2 = target3
-        elif x == target3:
-             return True
-        else:
-            return False 
+def spy_game(list):
+    we_need = [0,0,7]
+    index = 0
+    
+    for x in word:
+        if list[x] == we_need[index]:
+            index+=1
+        if we_need[index] == len(list):
+            return True
         
-nums = [1,2,4,0,0,7,5]
-print(spy_game(nums))
+        return False
+    
+list = [1,4,86,6,0,5,0,7]
+if True:
+    print("Yes")
+else:
+    print("No")
