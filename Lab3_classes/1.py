@@ -1,13 +1,15 @@
-class myClass:
+class String:
     def __init__(self):
-        self.str=""
-
+        self.my_string = ""
+    
+    
     def getString(self):
-        self.str=input("enter a string: ")
-
+        self.my_string = input("Write string: ")
+        
+        
     def printString(self):
-        print(self.str.upper())
-
-s=myClass()
-s.getString()
-s.printString()
+     print(self.my_string.upper())
+     
+String = String()
+String.getString()
+String.printString()
