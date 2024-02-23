@@ -8,9 +8,9 @@ def main():
 
 
 def get_student():
-    '''student = Student()
+    student = Student()
     student.name = input("Name: ")
-    student.house = input("House: ")'''
+    student.house = input("House: ")
     name = input("Name: ")
     house = input("House: ")
     student = Student(name, house)
@@ -19,5 +19,6 @@ def get_student():
 
 if __name__ == "__main__":
     main()
+    
     
     

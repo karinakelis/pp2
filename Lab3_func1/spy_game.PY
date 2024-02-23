@@ -2,7 +2,7 @@ def spy_game(list):
     we_need = [0,0,7]
     index = 0
     
-    for x in word:
+    for x in list:
         if list[x] == we_need[index]:
             index+=1
         if we_need[index] == len(list):
