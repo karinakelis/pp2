@@ -1,8 +1,12 @@
 '''Write a Python program to replace all occurrences of space, comma, or dot with a colon.'''
+
 import re
-def replace(text):
+with open ('row.txt','r', encoding='utf-8') as papka:
+   data = papka.read()
+def match23(data):
     pattern = r'[ .,]'
-    rep = re.sub(pattern,':',text)
-    return rep 
-text = input()
-print(replace(text))
+    match = re.findall(pattern,data)
+    print(match)
+ 
+print(match23(data))
+

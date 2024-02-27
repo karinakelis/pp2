@@ -1,10 +1,11 @@
 '''Write a Python program that matches a string that has an 'a' followed by anything, ending in 'b'.'''
 import re
-def match(string):
-    pattern = r'^a.*b$'
-    if re.search(pattern,string):
-        return "match found"
-    else:
-        return "match not found"
-string= input()
-print(match(string))
+with open ('row.txt','r', encoding='utf-8') as papka:
+   data = papka.read()
+def match23(data):
+    pattern = r'a.*b'
+    match = re.findall(pattern,data)
+    print(match)
+ 
+print(match23(data))
+

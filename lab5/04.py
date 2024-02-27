@@ -1,9 +1,12 @@
 '''Write a Python program to find the sequences of one upper case letter followed by lower case letters.'''
 
+
 import re
-def find1(text):
+with open ('row.txt','r', encoding='utf-8') as papka:
+   data = papka.read()
+def match23(data):
     pattern = r'[A-Z][a-z]+'
-    matches = re.findall(pattern,text)
-    return matches
-text = "This is an Example text with Some Words starting with Uppercase followed by lowercase "
-print(find1(text))
+    match = re.findall(pattern,data)
+    print(match)
+ 
+print(match23(data))
