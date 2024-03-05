@@ -6,3 +6,5 @@ def generator_square(N):
 gen = generator_square(5)
 for square in gen:
     print(square)
+
+

@@ -11,6 +11,6 @@ def copy_file(path1,path2):
     except Exception as e:
         print("mistake2")
         
-path1 = ("123.txt")
-path2 =("789.txt")
+path1 = ("lab6\goi.txt")
+path2 =("lab6\temir.txt")
 copy_file(path1,path2)
