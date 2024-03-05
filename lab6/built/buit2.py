@@ -9,5 +9,8 @@ def count_case(s):
     print(f"Number of Lowercase letters: {lower_case_count}")
 
 # Example usage
-sample_string = "Hello World!"
+sample_string = "Hello World"
 count_case(sample_string)
+
+
+
