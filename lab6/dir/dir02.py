@@ -25,3 +25,4 @@ def check_access(path):
         
 path = ("D:\Distr\System\Desktop\python")
 check_access(path)
+

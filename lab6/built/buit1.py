@@ -17,3 +17,16 @@ print("The result of multiplying all the numbers in the list:", multiply_list(nu
 # for i in iterator:
 #     mult*=i
 # print()
+
+import pygame
+pygame.init()
+sc=pygame.display.set_mode((500,400))
+done=True
+while done:
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+            # done=False
+    pygame.display.update()
+    
