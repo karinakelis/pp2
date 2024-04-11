@@ -18,9 +18,6 @@ def song_state_handler(command, path, state=True):
             pygame.mixer.music.play(0) 
 
 
-
-
-
 path = os.path.join(os.getcwd(), "music")
 songs = os.listdir(path)
 
@@ -55,7 +52,7 @@ while run:
                 i = i % len(songs)
                 song_state_handler("change", path + "\\" + songs[i])
 
-    screen.fill((255, 255, 255))
+    screen.fill((0, 255, 255))
 
     song_name = font.render(songs[i], True, (0, 0, 0))
     screen.blit(song_name, (0,0))

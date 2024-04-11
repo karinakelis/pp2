@@ -1,10 +1,14 @@
 import pygame
 from random import randrange as rnd
+from random import choice
 
 WIDTH, HEIGHT = 1200, 800
 fps = 60
+sc = pygame.display.set_mode((WIDTH, HEIGHT))
+hit_color = (255, 0, 0)
+
 # paddle settings
-paddle_w = 330
+paddle_w = 150
 paddle_h = 35
 paddle_speed = 15
 paddle = pygame.Rect(WIDTH // 2 - paddle_w // 2, HEIGHT - paddle_h - 10, paddle_w, paddle_h)
@@ -16,7 +20,18 @@ ball = pygame.Rect(rnd(ball_rect, WIDTH - ball_rect), HEIGHT // 2, ball_rect, ba
 dx, dy = 1, -1
 # blocks settings
 block_list = [pygame.Rect(10 + 120 * i, 10 + 70 * j, 100, 50) for i in range(10) for j in range(4)]
-color_list = [(rnd(30, 256), rnd(30, 256), rnd(30, 256)) for i in range(10) for j in range(4)]
+color_list = [(rnd(30, 256), rnd(40, 256), rnd(30, 256)) for i in range(10) for j in range(4)]
+SCORE = 0
+
+# Randomly pick indexes for 10 unbreakable blocks
+unbreakable_blocks_indexes = {choice(range(len(block_list))) for _ in range(5)}
+
+for i, block in enumerate(block_list):
+    color = pygame.Color('white') if i in unbreakable_blocks_indexes else color_list[i]
+    pygame.draw.rect(sc, color, block)
+
+
+
 
 pygame.init()
 sc = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -48,7 +63,7 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit()
-    sc.blit(img, (0, 0))
+    sc.blit(img, (0,0))
     # drawing world
     [pygame.draw.rect(sc, color_list[color], block) for color, block in enumerate(block_list)]
     pygame.draw.rect(sc, pygame.Color('darkorange'), paddle)
@@ -65,24 +80,25 @@ while True:
     # collision paddle
     if ball.colliderect(paddle) and dy > 0:
         dx, dy = detect_collision(dx, dy, ball, paddle)
-        # if dx > 0:
-        #     dx, dy = (-dx, -dy) if ball.centerx < paddle.centerx else (dx, -dy)
-        # else:
-        #     dx, dy = (-dx, -dy) if ball.centerx >= paddle.centerx else (dx, -dy)
-    # collision blocks
+       
+
     hit_index = ball.collidelist(block_list)
     if hit_index != -1:
-        hit_rect = block_list.pop(hit_index)
-        hit_color = color_list.pop(hit_index)
+        hit_rect = block_list[hit_index]
         dx, dy = detect_collision(dx, dy, ball, hit_rect)
-        # special effect
-        hit_rect.inflate_ip(ball.width * 3, ball.height * 3)
-        pygame.draw.rect(sc, hit_color, hit_rect)
-        fps += 2
+        if hit_index not in unbreakable_blocks_indexes:  # Check if the block is not unbreakable
+            block_list.pop(hit_index)
+            color_list.pop(hit_index)
+            # Adjust unbreakable blocks indexes after removal
+            unbreakable_blocks_indexes = {i-1 if i > hit_index else i for i in unbreakable_blocks_indexes}
+            fps += 2
+     
     # win, game over
     if ball.bottom > HEIGHT:
         print('GAME OVER!')
         exit()
+        
+        
     elif not len(block_list):
         print('WIN!!!')
         exit()

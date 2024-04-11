@@ -23,6 +23,7 @@ font = pygame.font.SysFont('Verdana', 63)  # big font
 font_small = pygame.font.SysFont('Verdana', 18)  # small font
 game_over_text_label = font.render('Game over!', True, WHITE)  # game over label
 background = pygame.image.load('street.png')  # background image
+
 pygame.mixer.init()  # initializing music component
 pygame.mixer.music.set_volume(0.45)  # volume of music
 pygame.mixer.music.load('lab9_racer_background.wav')  # music that will be played while playing the game

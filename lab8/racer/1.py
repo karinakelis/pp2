@@ -4,10 +4,6 @@ import time
 
 import pygame
 
-# def generate_random_color() -> tuple:
-#     color = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
-#     [print(pixel) for pixel in color]
-#     return color
 
 clock = pygame.time.Clock()
 fps = 60  # frame per seconds
@@ -17,17 +13,21 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
+
+
 SPEED = 6  # speed of enemy car
 SCORE = 0  # player's score
 
-WINDOW_SIZE = WINDOW_WIDTH, WINDOW_HEIGHT = 393, 600  # size of the window
-pygame.init()  # initialization
+WINDOW_SIZE = WINDOW_WIDTH, WINDOW_HEIGHT = 393, 600  
+pygame.init() 
 screen = pygame.display.set_mode(WINDOW_SIZE)  # initializing main screen
 
 font = pygame.font.SysFont('Verdana', 63)  # big font
 font_small = pygame.font.SysFont('Verdana', 18)  # small font
 game_over_text_label = font.render('Game over!', True, WHITE)  # game over label
 background = pygame.image.load('street.png')  # background image
+
+
 pygame.mixer.init()  # initializing music component
 pygame.mixer.music.set_volume(0.45)  # volume of music
 pygame.mixer.music.load('background.wav')  # music that will be played while playing the game
@@ -73,7 +73,7 @@ class Enemy(pygame.sprite.Sprite):
         self.set_random_position()
 
     def move(self):
-        global SPEED, SCORE
+        global SPEED,SCORE
         self.rect.move_ip(0, SPEED)  # car is moving by y-axis with some speed
 
         if self.rect.top > WINDOW_HEIGHT:  # if enemy car reached the bottom of window
@@ -113,8 +113,8 @@ class Player(pygame.sprite.Sprite):  # Player is moving by x-axis. It can collid
 
 
 player = Player()  # initializing the object of player class
-enemy = Enemy()  # init the object of enemy class
-coin = Coin()  # init the object of coin class
+enemy = Enemy() 
+coin = Coin() 
 
 all_sprites = pygame.sprite.Group()
 # creating array of objects
@@ -166,7 +166,8 @@ while not game_over:  # while game is playing
         sprite.move()  # moving and displaying all sprites
         sprite.draw(screen)
 
-    if pygame.sprite.spritecollideany(player, coins):  # if player get coin
+    if pygame.sprite.spritecollideany(player, coins): # if player get coin
+        pygame.mixer.Sound('crash.wav').play()
         coin.kill()  # coin disappear
         captured_coins += 1  # variable of number of touched coins
         SCORE += 1  # for touching a coin player get one point
